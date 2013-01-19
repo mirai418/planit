@@ -1,0 +1,48 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Location</th>
+    <th>Details</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.title %></td>
+    <td><%= event.start %></td>
+    <td><%= event.end %></td>
+  <div style="display:inline-block; padding:1em;">
+    <%= text_field_tag :date,
+      @event.start_time ? @event.start_time.strftime("%d/%m/%Y") : "",
+      :onkeyup => "putDayInNext(this)",
+      :class => "dateSelect" %>
+      <%= label_tag :dayOfWeek,
+        (@event.start_time ? (format_date @event.start_time) : ""),
+        :style => "font-size: 11px" %>
+      <br />
+      from <%= text_field_tag :start_time,
+      @event.start_time ? (format_time @event.start_time) : "",
+        :class => "timeSelect" %>
+      until <%= text_field_tag :end_time,
+      @event.end_time ? (format_time @event.end_time) : "",
+      :class => "timeSelect" %>
+  </div>
+    
+    <td><%= event.location %></td>
+    <td><%= event.details %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %>
