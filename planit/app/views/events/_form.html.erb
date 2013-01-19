@@ -17,18 +17,20 @@
   </div>
    <div class="field" style="display:inline-block; padding:1em;">
     <%= text_field_tag :date,
-      @event.start ? @event.start.strftime("%d/%m/%Y") : "",
+      @event.start ? @event.start.strftime("%d/%m/%Y")
+                   : DateTime.now.strftime("%d/%m/%Y"),
+      :autocomplete => "off",
       :onkeyup => "putDayInNext(this)",
       :class => "dateSelect field" %>
       <%= label_tag :dayOfWeek,
-        (@event.start ? (format_date @event.start) : ""),
+        (format_date (@event.start ?  @event.start : Time.now)),
         :style => "font-size: 11px" %>
       <br />
       from <%= text_field_tag :start,
-      @event.start ? (format_time @event.start) : "",
+      (format_time (@event.start ? @event.start : Time.now)),
         :class => "timeSelect field" %>
       until <%= text_field_tag :end,
-      @event.end ? (format_time @event.end) : "",
+      (format_time (@event.end ? @event.end : Time.now + 1.hour)),
       :class => "timeSelect field" %>
   </div>
   <div class="field">
