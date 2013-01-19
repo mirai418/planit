@@ -15,7 +15,7 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-   <div style="display:inline-block; padding:1em;">
+   <div class="field" style="display:inline-block; padding:1em;">
     <%= text_field_tag :date,
       @event.start ? @event.start.strftime("%d/%m/%Y") : "",
       :onkeyup => "putDayInNext(this)",
