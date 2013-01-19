@@ -19,6 +19,23 @@
     <%= f.label :start %><br />
     <%= f.datetime_select :start %>
   </div>
+   <div style="display:inline-block; padding:1em;">
+    <%= text_field_tag :date,
+      @event.start_time ? @event.start_time.strftime("%d/%m/%Y") : "",
+      :onkeyup => "putDayInNext(this)",
+      :class => "dateSelect" %>
+      <%= label_tag :dayOfWeek,
+        (@event.start_time ? (format_date @event.start_time) : ""),
+        :style => "font-size: 11px" %>
+      <br />
+      from <%= text_field_tag :start_time,
+      @event.start_time ? (format_time @event.start_time) : "",
+        :class => "timeSelect" %>
+      until <%= text_field_tag :end_time,
+      @event.end_time ? (format_time @event.end_time) : "",
+      :class => "timeSelect" %>
+  </div>
+
   <div class="field">
     <%= f.label :end %><br />
     <%= f.datetime_select :end %>
