@@ -40,6 +40,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    parseTimes params
     @event = Event.new(params[:event])
 
     respond_to do |format|
@@ -57,6 +58,7 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
+    parseTimes params
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
@@ -80,4 +82,22 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def parseTimes params
+    date = params[:date] ? params[:date].split("/") : []
+    start_time = params[:start] ? params[:start].split(":") : []
+    end_time = params[:end] ? params[:end].split(":") : []
+
+    if (date.length > 2) && (start_time.length > 0) then
+      params[:event][:start] = Time.new(date[2], date[1], date[0], start_time[0], start_time.length > 1 ? start_time[1] : 0).to_s
+    else
+      params[:event][:start] = ""
+    end
+    if (date.length > 2) && (end_time.length > 0) then
+      params[:event][:end] = Time.new(date[2], date[1], date[0], end_time[0], end_time.length > 1 ? end_time[1] : 0).to_s
+    else
+      params[:event][:end] = ""
+    end
+  end
+
 end

@@ -15,30 +15,21 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :start %><br />
-    <%= f.datetime_select :start %>
-  </div>
    <div style="display:inline-block; padding:1em;">
     <%= text_field_tag :date,
-      @event.start_time ? @event.start_time.strftime("%d/%m/%Y") : "",
+      @event.start ? @event.start.strftime("%d/%m/%Y") : "",
       :onkeyup => "putDayInNext(this)",
-      :class => "dateSelect" %>
+      :class => "dateSelect field" %>
       <%= label_tag :dayOfWeek,
-        (@event.start_time ? (format_date @event.start_time) : ""),
+        (@event.start ? (format_date @event.start) : ""),
         :style => "font-size: 11px" %>
       <br />
-      from <%= text_field_tag :start_time,
-      @event.start_time ? (format_time @event.start_time) : "",
-        :class => "timeSelect" %>
-      until <%= text_field_tag :end_time,
-      @event.end_time ? (format_time @event.end_time) : "",
-      :class => "timeSelect" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :end %><br />
-    <%= f.datetime_select :end %>
+      from <%= text_field_tag :start,
+      @event.start ? (format_time @event.start) : "",
+        :class => "timeSelect field" %>
+      until <%= text_field_tag :end,
+      @event.end ? (format_time @event.end) : "",
+      :class => "timeSelect field" %>
   </div>
   <div class="field">
     <%= f.label :location %><br />
