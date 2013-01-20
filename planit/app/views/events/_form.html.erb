@@ -47,11 +47,10 @@
           end.setHours( parseInt(e_time[1])+(e_time[3] ? 12 : 0));
           end.setMinutes( parseInt(e_time[2]) || 0);
           
-          if(end < start) {
+          if(end < start)
             $('#extra_day').css("display", "inline-block");
-          } else {
-            $('#extra_day').hide();
-          }
+        } else {
+          $('#extra_day').hide();
         }
       }
     </script>
@@ -61,8 +60,7 @@
                                    :class => "timeSelect field",
                                    :onkeyup => "time_change()"%>
     until <%= text_field_tag :end,
-      (format_time (@event.end ? @event.end
-                               : Time.now.change({:min => 0}) + 1.hour)),
+      @event.end ? (format_time @event.end) : "",
                                  :class => "timeSelect field",
                                  :onkeyup => "time_change()" %>
     <div id="extra_day" style="display:<%= @event.start && @event.end && @event.start < @event.end ? "inline-block" : "none" %>">the next day</div>
