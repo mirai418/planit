@@ -25,6 +25,8 @@
   <%= @event.details %>
 </p>
 
+<%= link_to new_user_path(:k => @event.id), new_user_path(:k => @event.id) %>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

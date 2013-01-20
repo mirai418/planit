@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_id: 1
+  user1_id: 1
+  user2_id: 1
+  active: 1
+
+two:
+  event_id: 1
+  user1_id: 1
+  user2_id: 1
+  active: 1
