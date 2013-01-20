@@ -3,7 +3,7 @@ Planit::Application.routes.draw do
 
   resources :events
 
-  match '/sms', to: 'receivetexts#index', :via => :post
+  match '/sms', to: 'receive_text#index', :via => :post
 
   root :to => "events#new"
 
