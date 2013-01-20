@@ -21,15 +21,22 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.number_field :gender %>
+    <%= f.radio_button :gender, 0 %>
+    male
+    <br />
+    <%= f.radio_button :gender, 1 %>
+    female
   </div>
   <div class="field">
     <%= f.label :preference %><br />
-    <%= f.number_field :preference %>
-  </div>
-  <div class="field">
-    <%= f.label :event_id %><br />
-    <%= f.number_field :event_id %>
+    <%= f.radio_button :preference, 0 %>
+    male
+    <br />
+    <%= f.radio_button :preference, 1 %>
+    female
+    <br />
+    <%= f.radio_button :preference, 2 %>
+    I don't care
   </div>
   <div class="actions">
     <%= f.submit %>
