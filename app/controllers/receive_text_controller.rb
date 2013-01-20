@@ -3,8 +3,8 @@ class ReceiveTextController < ApplicationController
     message_body = params["Body"]
     from_number = params["From"]
 
-    twilio_sid = 'AP5a61788d64ebe4536d754e03d06c5b2b'
-    twilio_token = 'bea098b5b4df9701137f87a953c3eea7'
+    twilio_sid = 'ACd6e2cd138e425cc622425573e6216494'
+    twilio_token = '900a14db17298034ba0707d3dd7c48f5'
     twilio_phone_number = '6143471726'
     
 
