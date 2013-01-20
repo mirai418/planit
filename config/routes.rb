@@ -3,6 +3,8 @@ Planit::Application.routes.draw do
 
   resources :events
 
+  match '/sms', to: 'receivetexts#index', :via => :post
+
   root :to => "events#new"
 
   # The priority is based upon order of creation:

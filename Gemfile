@@ -29,7 +29,6 @@ end
 
 gem 'jquery-rails'
 gem 'twilio-ruby'
-gem 'heroku'
 gem 'thin'
 
 # To use ActiveModel has_secure_password
