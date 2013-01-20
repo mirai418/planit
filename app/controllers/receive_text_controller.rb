@@ -5,7 +5,7 @@ class ReceiveTextController < ApplicationController
 
     twilio_sid = 'ACd6e2cd138e425cc622425573e6216494'
     twilio_token = '900a14db17298034ba0707d3dd7c48f5'
-    twilio_phone_number = '6143471726'
+    twilio_phone_number = '5005550006'
     
 
     User.create(:name => "TWILIO THING", :event_id => 3)
