@@ -68,8 +68,8 @@
         }
       });
     }
-    function display(address) {
-      //var address = document.getElementById("event_location").value;
+    function display() {
+      var address = document.getElementById("event_location").value;
       geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           var west = results[0].geometry.bounds.getSouthWest().lng();

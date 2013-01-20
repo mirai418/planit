@@ -53,11 +53,14 @@
     Location:
   </div>
 
-  <div class="field entry">
+  <div class="field entry" id="event_location">
     <%= @event.location %>
     <br />
+    <script type="text/javascript">
+        var ta = display();
+    </script>
   <div id="suggestion" style="display:inline-block;top:0;padding:2px;display:none"
-    onclick="jQuery('#event_location').val(jQuery('#suggestion').html())">Carnegie Mellon</div>
+    onload"jQuery('#event_location').val(jQuery('#suggestion').html())">Carnegie Mellon</div>
   </div>
   <br />
   <div id="map_canvas" style="width:698px; height:300px"></div>
