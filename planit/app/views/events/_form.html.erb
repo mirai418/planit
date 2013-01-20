@@ -30,15 +30,42 @@
       :onkeyup => "putDayInNext(this)",
       :class => "dateSelect field" %>
     <%= label_tag :dayOfWeek,
-      (format_date (@event.start ?  @event.start : Time.now)),
+      (format_date (@event.start ?  @event.start
+                                 : Time.now)),
       :style => "font-size: 11px" %>
     <br />
+    <script type="text/javascript">
+      function time_change() {
+        var regex = /(\d+)(?::(\d\d))?\s*(p?)/;
+        var s_time = jQuery('#start').val().match(regex);
+        var e_time = jQuery('#end').val().match(regex);
+        var start = new Date();
+        var end = new Date();
+        if (s_time && e_time) {
+          start.setHours( parseInt(s_time[1])+(s_time[3] ? 12 : 0) );
+          start.setMinutes( parseInt(s_time[2]) || 0);
+          end.setHours( parseInt(e_time[1])+(e_time[3] ? 12 : 0));
+          end.setMinutes( parseInt(e_time[2]) || 0);
+          
+          if(end < start) {
+            $('#extra_day').css("display", "inline-block");
+          } else {
+            $('#extra_day').hide();
+          }
+        }
+      }
+    </script>
     from <%= text_field_tag :start,
-    (format_time (@event.start ? @event.start : Time.now)),
-      :class => "timeSelect field" %>
+      (format_time (@event.start ? @event.start
+                                 : Time.now.change({:min => 0}))),
+                                   :class => "timeSelect field",
+                                   :onkeyup => "time_change()"%>
     until <%= text_field_tag :end,
-    (format_time (@event.end ? @event.end : Time.now + 1.hour)),
-    :class => "timeSelect field" %>
+      (format_time (@event.end ? @event.end
+                               : Time.now.change({:min => 0}) + 1.hour)),
+                                 :class => "timeSelect field",
+                                 :onkeyup => "time_change()" %>
+    <div id="extra_day" style="display:<%= @event.start && @event.end && @event.start < @event.end ? "inline-block" : "none" %>">the next day</div>
   </div>
   <div class="field">
     <%= f.label :location %><br />
