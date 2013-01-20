@@ -9,12 +9,12 @@ class ReceiveTextController < ApplicationController
     
 
     User.create(:name => "TWILIO THING", :event_id => 3)
-    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+    #@twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
 
-    @twilio_client.account.sms.messages.create(
-      :from => "+1#{twilio_phone_number}",
-      :to => from_number,
-      :body => "This is a message for #{from_number}. I got your message even tho im a bot"
-    )
+    #@twilio_client.account.sms.messages.create(
+      #:from => "+1#{twilio_phone_number}",
+      #:to => from_number,
+      #:body => "This is a message for #{from_number}. I got your message even tho im a bot"
+    #)
   end
 end
