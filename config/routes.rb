@@ -5,7 +5,7 @@ Planit::Application.routes.draw do
 
   match '/sms', to: 'receive_text#index', :via => :post
 
-  root :to => "events#new"
+  root :to => "welcome#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
