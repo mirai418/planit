@@ -14,83 +14,88 @@
 
   <div id="step1">
     Step 1: Fill in as much as you want.
+      <%= f.submit "", :class => "doneButton", :style => "position: relative; top: -30px;"%>
   </div>
 
   <%= f.text_field :title, :id => "title", :class => "textField", :autocomplete => "off", :placeholder => "Untitled Event" %><br>
-  <%= f.text_field :organizedBy, :id => "organizedBy", :class => "textField", :placeholder => "Who's is it organized by?" %><br>
+  <%= f.text_field :organizedBy, :id => "organizedBy", :class => "textField", :autocomplete => "off", :placeholder => "Who's is it organized by?" %><br>
 
-  <%= f.text_field :audience, :id => "audience", :class => "textField entry", :placeholder => "For Who?" %><br>
-  
+  <div class="entry">
+    Date and Time:
+  </div>
 
-   <div class="field">
+   <div class="field" style="margin-left: 20px;">
     <%= text_field_tag :date,
-      @event.start ? @event.start.strftime("%d/%m/%Y")
-                   : DateTime.now.strftime("%d/%m/%Y"),
+      @event.start ? @event.start.strftime("%m/%d/%Y") : '',
       :autocomplete => "off",
       :onkeyup => "putDayInNext(this)",
-      :class => "dateSelect field" %>
+      :placeholder => DateTime.now.strftime("%m/%d/%Y"),
+      :class => "dateSelect textField entry" %>
+    ( <%= label_tag :dayOfWeek,
+      (format_date (@event.start ?  @event.start : Time.now)),
+      :style => "font-size: 14px" %> )
+  </div>
+
+  <div id="calendar">
+        <div id="cont"></div>
+  </div>
+  <script type="text/javascript">
+    var LEFT_CAL = Calendar.setup({
+      cont: "cont",
+      weekNumbers: false,
+      selectionType: Calendar.SEL_MULTIPLE,
+      showTime: 12
+    })
+
+    function initCalendar() {
+      LEFT_CAL.fdow = 0;
+      LEFT_CAL.args.showTime = false;
+      LEFT_CAL.redraw();
+    };
+
+    initCalendar();
+
+    LEFT_CAL.addEventListener("onSelect", function(){
+      var ta = jQuery("#date");
+      ta.val(this.selection.print("%m/%d/%Y").join("\n"));
+    });
+
+  </script>
+
+  <div class="field entry">
+   from <%= text_field_tag :start,
+    (format_time (@event.start ? @event.start : Time.now)),
+      :class => "timeSelect textField entry", :style => "width: 68px;", :placeholder => format_time(Time.now) %>
+    until  <%= text_field_tag :end,
+    (format_time (@event.end ? @event.end : Time.now + 1.hour)),
+    :class => "timeSelect textField entry", :style => "width: 68px;", :placeholder => format_time(Time.now + 1.hour) %>
     <%= label_tag :dayOfWeek,
       (format_date (@event.start ?  @event.start
                                  : Time.now)),
       :style => "font-size: 11px" %>
     <br />
-    <script type="text/javascript">
-      function time_change() {
-        var regex = /(\d+)(?::(\d\d))?\s*(p?)/;
-        var s_time = jQuery('#start').val().match(regex);
-        var e_time = jQuery('#end').val().match(regex);
-        var start = new Date();
-        var end = new Date();
-        if (s_time && e_time) {
-          start.setHours( parseInt(s_time[1])+(s_time[3] ? 12 : 0) );
-          start.setMinutes( parseInt(s_time[2]) || 0);
-          end.setHours( parseInt(e_time[1])+(e_time[3] ? 12 : 0));
-          end.setMinutes( parseInt(e_time[2]) || 0);
-          
-          if(end < start)
-            $('#extra_day').css("display", "inline-block");
-        } else {
-          $('#extra_day').hide();
-        }
-      }
-    </script>
-    from <%= text_field_tag :start,
-      (format_time (@event.start ? @event.start
-                                 : Time.now.change({:min => 0}))),
-                                   :class => "timeSelect field",
-                                   :onkeyup => "time_change()"%>
-    until <%= text_field_tag :end,
-      @event.end ? (format_time @event.end) : "",
-                                 :class => "timeSelect field",
-                                 :onkeyup => "time_change()" %>
-    <div id="extra_day" style="display:<%= @event.start && @event.end && @event.start < @event.end ? "inline-block" : "none" %>">the next day</div>
   </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location, :autocomplete => "off" %>
-    <%= button_tag  "Search", {:type => "button", :onclick => "codeAddress()"} %>
+ 
+  <div class="entry" style="margin-bottom: 10px; margin-top: 20px;">
+    Location:
+  </div>
+
+  <div class="field entry">
+    <%= f.text_field :location, :class => "entry textField", :autocomplete => "off", :placeholder => "e.g. Philadelphia" %>
+    <%= button_tag  "Search", {:class => "link", :type => "button", :onclick => "codeAddress()"} %>
     <br />
-  <style type="text/css">
-    #suggestion { border: solid 1px grey }
-    #suggestion:hover {
-      cursor: default;
-      background: #ddd;
-    }
-  </style>
-      
   <div id="suggestion" style="display:inline-block;top:0;padding:2px;display:none"
     onclick="jQuery('#event_location').val(jQuery('#suggestion').html())">Carnegie Mellon</div>
   </div>
   <br />
-  <div id="map_canvas" style="width:540px; height:300px"></div>
+  <div id="map_canvas" style="width:698px; height:300px"></div>
   <br />
 
   <div class="field">
     <%= f.text_area :details, :id => "moreInfo", :class => "textField", :placeholder => "Add more info..." %>
   </div>
   <div class="actions">
-    <a href="#">
       <%= f.submit "", :class => "doneButton" %>
-    </a>
+      <a href="#"></a>
   </div>
 <% end %>
