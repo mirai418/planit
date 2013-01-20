@@ -24,21 +24,42 @@
 
    <div class="field">
     <%= text_field_tag :date,
-      @event.start ? @event.start.strftime("%d/%m/%Y") : "",
-      :placeholder => "date?",
+      @event.start ? @event.start.strftime("%d/%m/%Y")
+                   : DateTime.now.strftime("%d/%m/%Y"),
+      :autocomplete => "off",
       :onkeyup => "putDayInNext(this)",
-      :class => "dateSelect field textField entry" %>
-      <%= label_tag :dayOfWeek,
-        (@event.start ? (format_date @event.start) : "") %>
-      <br />
-      <%= text_field_tag :start,
-      @event.start ? (format_time @event.start) : "", :class => "timeSelect field textField entry", :placeholder => "time from" %>
-      <%= text_field_tag :end,
-      @event.end ? (format_time @event.end) : "", :class => "timeSelect field textField entry", :placeholder => "time until" %>
+      :class => "dateSelect field" %>
+    <%= label_tag :dayOfWeek,
+      (format_date (@event.start ?  @event.start : Time.now)),
+      :style => "font-size: 11px" %>
+    <br />
+    from <%= text_field_tag :start,
+    (format_time (@event.start ? @event.start : Time.now)),
+      :class => "timeSelect field" %>
+    until <%= text_field_tag :end,
+    (format_time (@event.end ? @event.end : Time.now + 1.hour)),
+    :class => "timeSelect field" %>
   </div>
   <div class="field">
-    <%= f.text_field :location, :class => "textField entry", :placeholder => "Where is the event?"%>
+    <%= f.label :location %><br />
+    <%= f.text_field :location, :autocomplete => "off" %>
+    <%= button_tag  "Search", {:type => "button", :onclick => "codeAddress()"} %>
+    <br />
+  <style type="text/css">
+    #suggestion { border: solid 1px grey }
+    #suggestion:hover {
+      cursor: default;
+      background: #ddd;
+    }
+  </style>
+      
+  <div id="suggestion" style="display:inline-block;top:0;padding:2px;display:none"
+    onclick="jQuery('#event_location').val(jQuery('#suggestion').html())">Carnegie Mellon</div>
   </div>
+  <br />
+  <div id="map_canvas" style="width:540px; height:300px"></div>
+  <br />
+
   <div class="field">
     <%= f.text_area :details, :id => "moreInfo", :class => "textField", :placeholder => "Add more info..." %>
   </div>
