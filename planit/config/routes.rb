@@ -1,4 +1,6 @@
 Planit::Application.routes.draw do
+  resources :users
+
   resources :events
 
   root :to => "welcome#home"
