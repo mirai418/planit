@@ -51,6 +51,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    @event = Event.find(params[:user][:event_id]) if Event.exists?(:id => params[:user][:event_id])
     if (@user = User.find_by_cell(params[:user][:cell]))
       respond_to do |format|
         if @user.update_attributes(params[:user])
@@ -78,6 +79,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+    @event = Event.find(params[:user][:event_id]) if Event.exists?(:id => params[:user][:event_id])
     @user = User.find(params[:id])
 
     respond_to do |format|
