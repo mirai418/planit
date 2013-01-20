@@ -1,7 +1,7 @@
 class ReceiveTextController < ApplicationController
   def index
     message_body = params["Body"]
-    from_number = params["From"]
+    from_number = "+16145319177"
     twilio_sid = 'AP5a61788d64ebe4536d754e03d06c5b2b'
     twilio_token = 'bea098b5b4df9701137f87a953c3eea7'
     twilio_phone_number = '6143471726'
