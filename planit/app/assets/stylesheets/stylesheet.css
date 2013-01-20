@@ -1,1 +1,366 @@
-stylesheet.css
+
+/*-------------------------------------------------------------*/
+/* FONTS  */
+
+@font-face {
+    font-family: 'Lato Local';
+    src: url('Lato-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*-------------------------------------------------------------*/
+/* GLOBAL DEFAULTS */
+
+* { 
+    margin: 0 auto;
+	padding: 0;
+}
+
+article, aside, figure, footer, header, hgroup, menu, nav, section 
+{
+    display: block;
+}
+
+html, body 
+{ 
+    margin: 0; 
+    padding: 0; 
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, 
+cite, code, img, small, strike, strong, em, sub, sup, tt, dd, dl, dt, 
+li, ol, ul, fieldset, form, label, legend, button, table, caption, 
+tbody, tfoot, thead, tr, th, td, section, div
+{ 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    font-family: 'Lato Local', 'Lato', sans-serif;
+    font-style: normal;
+    font-size: 100%; 
+    line-height: 1;
+    text-align: left;
+    /* font-family: inherit; */
+}
+
+table
+{ 
+    border-collapse: collapse; 
+    border-spacing: 0; 
+}
+
+ol, ul, li 
+{ 
+    margin:0; 
+    padding:0; 
+    list-style:none;    
+}
+
+body {
+    background-image:url('background.png');
+}
+
+
+/*-------------------------------------------------------------*/
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+#wrapper{
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    min-width: 800px;
+    vertical-align: center;
+}
+
+#bodyWrapper{
+    margin: 0 auto;
+    width: 800px;
+    overflow: hidden;    
+    vertical-align: center;
+}
+
+#start_button_div{
+    margin-left: -75px;
+    margin-top: -200px;
+    /*margin-top: 300px;*/
+    margin-bottom: 80px;
+    width: 150px;
+}
+
+#start_button{
+    margin: 0 auto;
+    width: 150px;
+    height: 41px;
+}
+
+#start_button a:hover{
+    background-image:url('start_button_hover.png');
+    width: 150px;
+    height: 41px;    
+    border: none;
+    outline: none;
+}
+
+#logo_div{
+    width: 180px;
+    margin-left: -100px;
+    position: fixed;
+    left: 50%;
+    top: 82%;
+}
+
+#logo{
+    margin: 0 auto;
+    width: 180px;
+}
+
+#slogans{
+    width: 640px;
+    margin-left: -320px; 
+    margin-top: -100px;
+}
+
+#slogan1{
+    font-size: 48px;
+    color:#010d01;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+#slogan2{
+    font-size: 68px;
+    color:#010d01;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: #FF9500;
+    text-align: center;
+}
+
+#slogan3{
+    font-size: 48px;
+    color:#010d01;
+    font-weight: 300;
+    margin-bottom: 80px;
+    text-align: right;
+}
+
+#footernote{
+    position: fixed;
+    left: 50%;
+    top: 95%;
+    width: 320px;
+    margin-left: -160px;
+    font-size: 10px;
+    color:#010d01;
+    font-weight: 300;
+    text-align: center;
+}
+
+#createEventWrapper{
+    padding: 40px;
+    width: 718px;
+    min-height: 540px;
+    margin-top: 80px;
+    background: white;
+    border: 1px solid #FF9500;
+
+}
+
+#navigation{
+    display: table;
+    margin-top: 15px;
+    float: right;
+}
+#navigation li{
+    display: table-cell;
+    color: white;
+}
+
+
+#step1{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    min-width: 320px;
+    overflow: hidden; 
+    color: #FF9500;
+}
+
+#title{
+    padding-left: 10px;
+    margin-top: 20px;
+    font-size: 60px;
+    min-width: 320px;
+    overflow: hidden;   
+    border-bottom: 1px solid #A0A0A0;
+}
+
+#organizedBy{
+    padding-left: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    min-width: 320px;
+    overflow: hidden;   
+}
+
+#audience{
+    margin-top: 40px;
+}
+
+#moreInfo{
+    font-size: 16px;
+    margin-top: 20px;
+    height: 144px;
+    width: 698px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.entry{
+    min-width: 320px;
+    padding-left: 10px;
+    font-size: 24px;
+    overflow: hidden;
+}
+
+.textField {
+    border: none;
+    outline: none;
+}
+
+.textField:hover {
+  background-color: #FAFAFA;
+  -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  color: #222;
+}
+
+
+.doneButton{
+    background-image:url('done_button.png');
+    border: none;
+    outline: none;
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 560px;
+}
+
+h1{
+    font-size: "KozGoPr6N-ExtraLight";
+    font-size: 72px;
+    color:#010d01;
+    font-weight: lighter;
+}
+
+h2{
+    font-size: 72px;
+    color:#010d01;
+    font-weight: 300;
+    margin-bottom: 10px;
+
+}
+
+h3{
+    font-size: 40px;
+    color:#010d01;
+    font-weight: 300;
+    color: #FF4100;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+h4{
+    font-size: 28px;
+    font-weight: 300;
+    color: #FF4100;
+    line-height: 40px;
+}
+
+h4 a:link {   
+    text-decoration:underline;
+    color: #FF4100;    
+}   
+
+h4 a:visited {   
+    text-decoration:underline;
+    color: #A63400; 
+} 
+
+h5{
+    font-size: 40px;
+    font-weight: 300;
+    color: #FF4100;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+label{
+
+    font-size: 28px;
+    color:#010d01;
+    font-weight: 300;
+    line-height: 40px;
+}
+
+p{
+    margin-top: 40px;
+    font-size: 18px;
+    color:#010d01;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+p a:link {   
+    text-decoration:underline;
+    color: #FF4100;    
+}   
+
+p a:visited {   
+    text-decoration:underline;
+    color: #A63400; 
+} 
+
+
+/*-------------------------------------------------------------*/
+
+a:link{
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+
+a:hover{
+    text-decoration: none;
+}
+
+a:active {   
+    text-decoration:none;
+} 
+
+.styled-button-4 {
+	-webkit-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+	background-color:#EEE;
+	border-radius:0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border:1px solid #999;
+	color:#666;
+	font-family:'Lucida Grande',Tahoma,Verdana,Arial,Sans-serif;
+	font-size:11px;
+	font-weight:700;
+	padding:2px 6px;
+	height:28px
+}

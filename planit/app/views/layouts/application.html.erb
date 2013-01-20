@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Planit</title>
+  <title>- plan.it -</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="wrapper">
+		<div id="bodyWrapper">
+			<%= yield %>
+			
+			<div id="logo_div">
+				<%= link_to image_tag("logo.png", :id => "logo", :alt => "plan.it"), root_path %>
+			</div>
+			<div id="footernote">
+				Created as part of PennApps 2013 - Willy Hauser & Mirai Akagawa
+			</p>
+		</div>
+	</div>
 
-<%= link_to "events", events_path %>
-<%= yield %>
 
 </body>
 </html>

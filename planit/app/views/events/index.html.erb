@@ -16,24 +16,7 @@
   <tr>
     <td><%= event.title %></td>
     <td><%= event.start %></td>
-    <td><%= event.end %></td>
-  <div style="display:inline-block; padding:1em;">
-    <%= text_field_tag :date,
-      @event.start ? @event.start.strftime("%d/%m/%Y") : "",
-      :onkeyup => "putDayInNext(this)",
-      :class => "dateSelect" %>
-      <%= label_tag :dayOfWeek,
-        (@event.start ? (format_date @event.start) : ""),
-        :style => "font-size: 11px" %>
-      <br />
-      from <%= text_field_tag :start,
-      @event.start ? (format_time @event.start) : "",
-        :class => "timeSelect" %>
-      until <%= text_field_tag :end,
-      @event.end ? (format_time @event.end) : "",
-      :class => "timeSelect" %>
-  </div>
-    
+  <td><%= event.end %></td>    
     <td><%= event.location %></td>
     <td><%= event.details %></td>
     <td><%= link_to 'Show', event %></td>

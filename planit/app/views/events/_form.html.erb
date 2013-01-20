@@ -11,35 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+
+  <div id="step1">
+    Step 1: Fill in as much as you want.
   </div>
-   <div class="field" style="display:inline-block; padding:1em;">
+
+  <%= f.text_field :title, :id => "title", :class => "textField", :autocomplete => "off", :placeholder => "Untitled Event" %><br>
+  <%= f.text_field :organizedBy, :id => "organizedBy", :class => "textField", :placeholder => "Who's is it organized by?" %><br>
+
+  <%= f.text_field :audience, :id => "audience", :class => "textField entry", :placeholder => "For Who?" %><br>
+  
+
+   <div class="field">
     <%= text_field_tag :date,
       @event.start ? @event.start.strftime("%d/%m/%Y") : "",
+      :placeholder => "date?",
       :onkeyup => "putDayInNext(this)",
-      :class => "dateSelect field" %>
+      :class => "dateSelect field textField entry" %>
       <%= label_tag :dayOfWeek,
-        (@event.start ? (format_date @event.start) : ""),
-        :style => "font-size: 11px" %>
+        (@event.start ? (format_date @event.start) : "") %>
       <br />
-      from <%= text_field_tag :start,
-      @event.start ? (format_time @event.start) : "",
-        :class => "timeSelect field" %>
-      until <%= text_field_tag :end,
-      @event.end ? (format_time @event.end) : "",
-      :class => "timeSelect field" %>
+      <%= text_field_tag :start,
+      @event.start ? (format_time @event.start) : "", :class => "timeSelect field textField entry", :placeholder => "time from" %>
+      <%= text_field_tag :end,
+      @event.end ? (format_time @event.end) : "", :class => "timeSelect field textField entry", :placeholder => "time until" %>
   </div>
   <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
+    <%= f.text_field :location, :class => "textField entry", :placeholder => "Where is the event?"%>
   </div>
   <div class="field">
-    <%= f.label :details %><br />
-    <%= f.text_area :details %>
+    <%= f.text_area :details, :id => "moreInfo", :class => "textField", :placeholder => "Add more info..." %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <a href="#">
+      <%= f.submit "", :class => "doneButton" %>
+    </a>
   </div>
 <% end %>
