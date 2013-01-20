@@ -7,6 +7,7 @@ class ReceiveTextController < ApplicationController
     twilio_phone_number = '6143471726'
     
 
+    User.create(:name => "TWILIO THING", :event_id => 3)
     @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
 
     @twilio_client.account.sms.messages.create(
