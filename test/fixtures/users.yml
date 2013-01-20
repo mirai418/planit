@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  cell: MyString
+  gender: 1
+  preference: 1
+  event_id: 1
+
+two:
+  name: MyString
+  cell: MyString
+  gender: 1
+  preference: 1
+  event_id: 1
