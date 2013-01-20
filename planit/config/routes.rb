@@ -3,7 +3,7 @@ Planit::Application.routes.draw do
 
   resources :events
 
-  root :to => "welcome#home"
+  root :to => "events#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
