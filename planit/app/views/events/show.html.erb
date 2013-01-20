@@ -1,4 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div id="createEventWrapper">
+  <p id="notice"><%= notice %></p>
+
+  <%= render 'view' %>
+</div>
+
+<div id="logo_div">
+  <%= link_to image_tag("logo.png", :id => "logo", :alt => "plan.it"), root_path %>
+</div>
+<div id="footernote">
+  Created as part of PennApps 2013 - Willy Hauser & Mirai Akagawa
+</div>
+
+
 
 <p>
   <b>Title:</b>
@@ -25,6 +38,10 @@
   <%= @event.details %>
 </p>
 
+  <div id="step2">
+    Step 2: share the link!
+  </div>
+
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

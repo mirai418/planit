@@ -89,12 +89,12 @@ class EventsController < ApplicationController
     end_time = params[:end] ? params[:end].split(":") : []
 
     if (date.length > 2) && (start_time.length > 0) then
-      params[:event][:start] = Time.new(date[2], date[1], date[0], start_time[0], start_time.length > 1 ? start_time[1] : 0).to_s
+      params[:event][:start] = Time.new(date[2], date[0], date[1], start_time[0], start_time.length > 1 ? start_time[1] : 0).to_s
     else
       params[:event][:start] = ""
     end
     if (date.length > 2) && (end_time.length > 0) then
-      params[:event][:end] = Time.new(date[2], date[1], date[0], end_time[0], end_time.length > 1 ? end_time[1] : 0).to_s
+      params[:event][:end] = Time.new(date[2], date[0], date[1], end_time[0], end_time.length > 1 ? end_time[1] : 0).to_s
     else
       params[:event][:end] = ""
     end
