@@ -12,9 +12,10 @@
 /*-------------------------------------------------------------*/
 /* GLOBAL DEFAULTS */
 
-* { 
+
+*{ 
     margin: 0 auto;
-	padding: 0;
+    padding: 0;
 }
 
 article, aside, figure, footer, header, hgroup, menu, nav, section 
@@ -109,10 +110,8 @@ body {
 
 #logo_div{
     width: 180px;
-    margin-left: -100px;
-    position: fixed;
-    left: 50%;
-    top: 82%;
+    margin: 0 auto;
+    margin-top: 20px;
 }
 
 #logo{
@@ -151,15 +150,13 @@ body {
 }
 
 #footernote{
-    position: fixed;
-    left: 50%;
-    top: 95%;
+    margin: 0 auto;
     width: 320px;
-    margin-left: -160px;
     font-size: 10px;
     color:#010d01;
     font-weight: 300;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 #createEventWrapper{
@@ -172,17 +169,6 @@ body {
 
 }
 
-#navigation{
-    display: table;
-    margin-top: 15px;
-    float: right;
-}
-#navigation li{
-    display: table-cell;
-    color: white;
-}
-
-
 #step1{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -190,11 +176,12 @@ body {
     min-width: 320px;
     overflow: hidden; 
     color: #FF9500;
+    float: left;
 }
 
 #title{
     padding-left: 10px;
-    margin-top: 20px;
+    margin-top: 0px;
     font-size: 60px;
     min-width: 320px;
     overflow: hidden;   
@@ -207,10 +194,17 @@ body {
     font-size: 16px;
     min-width: 320px;
     overflow: hidden;   
+    margin-bottom: 20px;
 }
 
 #audience{
     margin-top: 40px;
+}
+
+#calendar{
+    margin-left: 32px;
+    margin-top: -12px;
+    margin-bottom: 20px;
 }
 
 #moreInfo{
@@ -223,9 +217,8 @@ body {
 }
 
 .entry{
-    min-width: 320px;
     padding-left: 10px;
-    font-size: 24px;
+    font-size: 20px;
     overflow: hidden;
 }
 
@@ -247,10 +240,10 @@ body {
     background-image:url('done_button.png');
     border: none;
     outline: none;
-    width: 150px;
-    height: 40px;
+    width: 100px;
+    height: 27px;
     margin-top: 20px;
-    margin-left: 560px;
+    margin-left: 610px;
 }
 
 h1{
@@ -328,6 +321,35 @@ p a:visited {
     color: #A63400; 
 } 
 
+.link {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  cursor: default;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 24px;
+  padding: 0 12px;
+  text-align: center;
+  text-decoration: none !important;
+  -webkit-user-select: none;
+  text-wrap:unrestricted;
+
+  border: 1px solid rgba(0,0,0,.1);
+  background-color: #F2F2F2;
+  color: #444;
+  font-size: 11px;
+}
+
+.link:hover {
+  background-color: #F6F6F6;
+  border-color: #C6C6C6;
+  -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  color: #222;
+}
+
 
 /*-------------------------------------------------------------*/
 
@@ -349,18 +371,23 @@ a:active {
 } 
 
 .styled-button-4 {
-	-webkit-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
-	-moz-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
-	box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
-	background-color:#EEE;
-	border-radius:0;
-	-webkit-border-radius:0;
-	-moz-border-radius:0;
-	border:1px solid #999;
-	color:#666;
-	font-family:'Lucida Grande',Tahoma,Verdana,Arial,Sans-serif;
-	font-size:11px;
-	font-weight:700;
-	padding:2px 6px;
-	height:28px
+    -webkit-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+    -moz-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+    box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+    background-color:#EEE;
+    border-radius:0;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border:1px solid #999;
+    color:#666;
+    font-family:'Lucida Grande',Tahoma,Verdana,Arial,Sans-serif;
+    font-size:11px;
+    font-weight:700;
+    padding:2px 6px;
+    height:28px
 }
+
+    #suggestion { border: solid 1px grey }
+    #suggestion:hover {
+      cursor: default;
+      background: #ddd;

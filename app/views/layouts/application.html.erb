@@ -3,7 +3,12 @@
 <head>
   <title>- plan.it -</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "stylesheet", :media => "all" %>
+  <%= stylesheet_link_tag    "jscal2", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jscal2" %>
+  <%= javascript_include_tag "calendar" %>
+  <%= javascript_include_tag "en" %>
   <%= csrf_meta_tags %>
 
   <script type="text/javascript"
@@ -64,21 +69,12 @@
         }
       });
     }
-
   </script>
 </head>
 <body onload="initialize()">
-	<div id="wrapper">
-		<div id="bodyWrapper">
-			<%= yield %>
-			
-			<div id="logo_div">
-				<%= link_to image_tag("logo.png", :id => "logo", :alt => "plan.it"), root_path %>
-			</div>
-			<div id="footernote">
-				Created as part of PennApps 2013 - Willy Hauser & Mirai Akagawa
-			</p>
-		</div>
-	</div>
+  <div id="wrapper">
+    <div id="bodyWrapper">
+      <%= yield %>
+  </div>
 </body>
 </html>

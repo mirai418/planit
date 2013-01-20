@@ -5,5 +5,4 @@ class Event < ActiveRecord::Base
   has_many :conversations
 
   validates_presence_of :title
-  validates_presence_of :start
 end
