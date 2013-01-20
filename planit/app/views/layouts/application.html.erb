@@ -5,8 +5,69 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW3GbI73C08axB354lE1hJI9spmuBLxJA&sensor=true">
+  </script>
+  <script type="text/javascript">
+    var geocoder, map;
+    function initialize() {
+      var mapOptions = {
+        center: new google.maps.LatLng(40.4230, -98.7372),
+        zoom: 3,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      geocoder = new google.maps.Geocoder();
+      map = new google.maps.Map(document.getElementById("map_canvas"),
+        mapOptions);
+    }
+
+    function autofill() {
+      var address = document.getElementById("event_location").value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var zoom = 20;
+          if(results[0].geometry.bounds) {
+            var west = results[0].geometry.bounds.getSouthWest().lng();
+            var east = results[0].geometry.bounds.getNorthEast().lng();
+            var angle = east - west;
+            if (angle < 0) {
+              angle += 360;
+            }
+            zoom = Math.round(Math.log(300*360/angle/256) / Math.LN2);
+          }
+          map.setZoom(zoom);
+          map.panTo(results[0].geometry.location);
+          jQuery("#suggestion").html(results[0].formatted_address);
+        }
+      });
+    }
+    function search() {
+      var address = document.getElementById("event_location").value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var west = results[0].geometry.bounds.getSouthWest().lng();
+          var east = results[0].geometry.bounds.getNorthEast().lng();
+          var angle = east - west;
+          if (angle < 0) {
+            angle += 360;
+          }
+          var zoom = Math.round(Math.log(300*360/angle/256) / Math.LN2);
+          map.setZoom(zoom);
+          map.panTo(results[0].geometry.location);
+          jQuery("#event_location").val(results[0].formatted_address);
+          jQuery("#suggestion").hide();
+          var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          });
+        }
+      });
+    }
+
+  </script>
 </head>
-<body>
+<body onload="initialize()">
 
 <%= link_to "events", events_path %>
 <%= yield %>
