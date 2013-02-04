@@ -1,14 +1,14 @@
 
 /*-------------------------------------------------------------*/
 /* FONTS  */
-
+/*
 @font-face {
     font-family: 'Lato Local';
     src: url('Lato-Regular.ttf');
     font-weight: normal;
     font-style: normal;
 }
-
+*/
 /*-------------------------------------------------------------*/
 /* GLOBAL DEFAULTS */
 
@@ -18,13 +18,11 @@
     padding: 0;
 }
 
-article, aside, figure, footer, header, hgroup, menu, nav, section 
-{
+article, aside, figure, footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
-html, body 
-{ 
+html, body { 
     margin: 0; 
     padding: 0; 
 }
@@ -32,8 +30,7 @@ html, body
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, 
 cite, code, img, small, strike, strong, em, sub, sup, tt, dd, dl, dt, 
 li, ol, ul, fieldset, form, label, legend, button, table, caption, 
-tbody, tfoot, thead, tr, th, td, section, div
-{ 
+tbody, tfoot, thead, tr, th, td, section, div { 
     margin: 0; 
     padding: 0; 
     border: 0; 
@@ -45,14 +42,12 @@ tbody, tfoot, thead, tr, th, td, section, div
     /* font-family: inherit; */
 }
 
-table
-{ 
+table { 
     border-collapse: collapse; 
     border-spacing: 0; 
 }
 
-ol, ul, li 
-{ 
+ol, ul, li { 
     margin:0; 
     padding:0; 
     list-style:none;    
@@ -71,7 +66,7 @@ body {
   left: 50%;
 }
 
-#wrapper{
+#wrapper {
     margin: 0 auto;
     text-align: center;
     width: 100%;
@@ -79,14 +74,14 @@ body {
     vertical-align: center;
 }
 
-#bodyWrapper{
+#bodyWrapper {
     margin: 0 auto;
     width: 800px;
     overflow: hidden;    
     vertical-align: center;
 }
 
-#start_button_div{
+#start_button_div {
     margin-left: -75px;
     margin-top: -200px;
     /*margin-top: 300px;*/
@@ -94,13 +89,13 @@ body {
     width: 150px;
 }
 
-#start_button{
+#start_button {
     margin: 0 auto;
     width: 150px;
     height: 41px;
 }
 
-#start_button a:hover{
+#start_button a:hover {
     background-image:url('start_button_hover.png');
     width: 150px;
     height: 41px;    
@@ -108,31 +103,31 @@ body {
     outline: none;
 }
 
-#logo_div{
+#logo_div {
     width: 180px;
     margin: 0 auto;
     margin-top: 20px;
 }
 
-#logo{
+#logo {
     margin: 0 auto;
     width: 180px;
 }
 
-#slogans{
+#slogans {
     width: 640px;
     margin-left: -320px; 
     margin-top: -100px;
 }
 
-#slogan1{
+#slogan1 {
     font-size: 48px;
     color:#010d01;
     font-weight: 300;
     margin-bottom: 10px;
 }
 
-#slogan2{
+#slogan2 {
     font-size: 68px;
     color:#010d01;
     font-weight: 300;
@@ -141,7 +136,7 @@ body {
     text-align: center;
 }
 
-#slogan3{
+#slogan3 {
     font-size: 48px;
     color:#010d01;
     font-weight: 300;
@@ -149,7 +144,7 @@ body {
     text-align: right;
 }
 
-#footernote{
+#footernote {
     margin: 0 auto;
     width: 320px;
     font-size: 10px;
@@ -159,7 +154,7 @@ body {
     margin-bottom: 40px;
 }
 
-#createEventWrapper{
+#createEventWrapper {
     padding: 40px;
     width: 718px;
     min-height: 540px;
@@ -169,7 +164,7 @@ body {
 
 }
 
-#step1{
+#step1 {
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 16px;
@@ -179,7 +174,7 @@ body {
     float: left;
 }
 
-#title{
+#title {
     padding-left: 10px;
     margin-top: 0px;
     font-size: 60px;
@@ -188,7 +183,7 @@ body {
     border-bottom: 1px solid #A0A0A0;
 }
 
-#organizedBy{
+#organizedBy {
     padding-left: 10px;
     margin-top: 10px;
     font-size: 16px;
@@ -197,17 +192,17 @@ body {
     margin-bottom: 20px;
 }
 
-#audience{
+#audience {
     margin-top: 40px;
 }
 
-#calendar{
+#calendar {
     margin-left: 32px;
     margin-top: -12px;
     margin-bottom: 20px;
 }
 
-#moreInfo{
+#moreInfo {
     font-size: 16px;
     margin-top: 20px;
     height: 144px;
@@ -216,7 +211,7 @@ body {
     padding-right: 10px;
 }
 
-.entry{
+.entry {
     padding-left: 10px;
     font-size: 20px;
     overflow: hidden;
@@ -236,7 +231,7 @@ body {
 }
 
 
-.doneButton{
+.doneButton {
     background-image:url('done_button.png');
     border: none;
     outline: none;
@@ -246,14 +241,14 @@ body {
     margin-left: 610px;
 }
 
-h1{
+h1 {
     font-size: "KozGoPr6N-ExtraLight";
     font-size: 72px;
     color:#010d01;
     font-weight: lighter;
 }
 
-h2{
+h2 {
     font-size: 72px;
     color:#010d01;
     font-weight: 300;
@@ -261,7 +256,7 @@ h2{
 
 }
 
-h3{
+h3 {
     font-size: 40px;
     color:#010d01;
     font-weight: 300;
@@ -270,7 +265,7 @@ h3{
     margin-bottom: 60px;
 }
 
-h4{
+h4 {
     font-size: 28px;
     font-weight: 300;
     color: #FF4100;
@@ -287,7 +282,7 @@ h4 a:visited {
     color: #A63400; 
 } 
 
-h5{
+h5 {
     font-size: 40px;
     font-weight: 300;
     color: #FF4100;
@@ -295,7 +290,7 @@ h5{
     margin-bottom: 20px;
 }
 
-label{
+label {
 
     font-size: 28px;
     color:#010d01;
@@ -303,7 +298,7 @@ label{
     line-height: 40px;
 }
 
-p{
+p {
     margin-top: 40px;
     font-size: 18px;
     color:#010d01;
@@ -353,16 +348,16 @@ p a:visited {
 
 /*-------------------------------------------------------------*/
 
-a:link{
+a:link {
     text-decoration: none;
 }
 
-a:visited{
+a:visited {
     text-decoration: none;
 }
 
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
