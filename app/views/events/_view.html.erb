@@ -69,4 +69,6 @@
   <div id="moreInfo">
     <%= @event.details %>
   </div>
+
+  <%= link_to 'Edit', edit_event_path(@event), :class => "link", :type => "button", :style => "float: right; margin-bottom: 40px;" %>
 <% end %>
