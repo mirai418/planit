@@ -386,8 +386,17 @@ a:active {
     padding:2px 6px;
     height:28px
 }
-/*
-    #suggestion { border: solid 1px grey }
-    #suggestion:hover {
-      cursor: default;
-      background: #ddd;}*/
+
+#suggestion { 
+    border: solid 1px grey 
+}
+
+#suggestion:hover {
+    cursor: default;
+    background: #ddd;
+}
+
+
+
+
+
